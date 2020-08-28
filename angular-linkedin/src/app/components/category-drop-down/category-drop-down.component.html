@@ -1,4 +1,4 @@
-<select name="categories" id="categories">
+<select (change)="onChange($event)" name="categories" id="categories">
     <option
     *ngFor="let category of allCategories"
     [category] = category>

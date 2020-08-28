@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Category } from 'src/app/models/category';
 import { CategoryService } from 'src/app/services/category.service';
 
@@ -10,6 +10,7 @@ import { CategoryService } from 'src/app/services/category.service';
 export class CategoryDropDownComponent implements OnInit {
 
   allCategories:Category[];
+  @Output() onChangeEvent: EventEmitter<Category> = new EventEmitter();
 
   constructor(private categoryService:CategoryService) { }
 
@@ -21,6 +22,18 @@ export class CategoryDropDownComponent implements OnInit {
 
   setCategories(c:Category[]){
     this.allCategories = c;
+  }
+
+  onChange(event: any){
+    console.log(event.target.value);
+    this.categoryService.getAllCategories().subscribe(c=>{
+      let allCats:Category[] = c;
+      for(let cat of allCats){
+        if(event.target.value === cat.title){
+          this.onChangeEvent.emit(cat);
+        }
+      }
+    })
   }
 
 }

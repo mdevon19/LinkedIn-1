@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Category } from 'src/app/models/category';
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
+import { OuterSubscriber } from 'rxjs/internal/OuterSubscriber';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   allPosts:Post[];
   showPosts:Post[];
 
-  filterCategories:Category[];
+  @Output() filterCategories:Category[];
   @Input() category: Category;
 
   constructor(private postService:PostService) { 

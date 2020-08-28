@@ -4,7 +4,9 @@
         <form>
             <div class="form-group">
                 <label for="category_name">Category</label>
-                <app-category-drop-down>
+                <app-category-drop-down
+                (onChangeEvent) = "onChangeEvent($event)"
+                >
 
                 </app-category-drop-down>
           
@@ -13,7 +15,7 @@
                 <label for="content">Content</label>
                 <input type="text" name="content" class="form-control"maxlength = "300" placeholder="Create a new job here" #content>
             </div>
-            <button type="button" (click) ="addPost(category_name,content)" class="btn btn-primary">Create</button>
+            <button type="button" (click) ="addPost(content)" class="btn btn-primary">Create</button>
         </form>
         <br>
         <h4><strong>Welcome to the Wall</strong></h4>

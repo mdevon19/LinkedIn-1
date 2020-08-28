@@ -1,6 +1,6 @@
 export class Category{
 
-    id:number;
-    title:string;
-    toggle:boolean;
+    public id:number;
+    public title:string;
+    public toggle?:boolean;
 }

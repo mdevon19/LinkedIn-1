@@ -55,10 +55,15 @@ register(firstName, lastName, username, password): Observable<User> {
 }
 
 applyToPost(post:Post):Observable<User>{
-  return this.http.get<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/"+JSON.parse(localStorage.getItem('user')).username +"/apply/"+post.id);
+  return this.http.post<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/"+JSON.parse(localStorage.getItem('user')).username +"/apply/"+post.id,post);
 }
 
 addPost(post:Post):Observable<User>{
-  return this.http.get<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/addPost"+JSON.parse(localStorage.getItem('user')).id);
+  console.log(post);
+  return this.http.post<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/addPost/"+JSON.parse(localStorage.getItem('user')).id,post);
+}
+
+getUserById(id:number){
+  return this.http.get<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/"+id);
 }
 }
