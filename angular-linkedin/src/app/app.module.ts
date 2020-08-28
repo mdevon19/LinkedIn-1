@@ -12,6 +12,13 @@ import { WallComponent } from './components/wall/wall.component';
 import { EachPostComponent } from './components/each-post/each-post.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { EachCategoryComponent } from './components/each-category/each-category.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { YourEachPostComponent } from './components/your-each-post/your-each-post.component';
+import { CategoryDropDownComponent } from './components/category-drop-down/category-drop-down.component';
+
+
 
 @NgModule({
   declarations: [
@@ -24,11 +31,18 @@ import { EachCategoryComponent } from './components/each-category/each-category.
     WallComponent,
     EachPostComponent,
     CategoriesComponent,
-    EachCategoryComponent
+    EachCategoryComponent,
+    NavbarComponent,
+    YourEachPostComponent,
+    CategoryDropDownComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

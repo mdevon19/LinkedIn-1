@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="d-flex justify-content-center">
+        <div class= "border border-secondary" style="padding: 10%; margin-bottom: 2em;">
+            <div class="text-center">
+                <div class="row">
+                    <p>{{ post.desc }}d</p>
+                </div>
+                
+                    <div class="row">
+                        
+                        <label for="appliedUsers">Pick an Applicant:</label>
+                        
+                    </div>
+                    <div style="margin-bottom: 2em;" class="row">
+                        <select name="appliedUsers" id="appliedUsers">
+                            <option
+                            *ngFor="let applied of appliedUsers"
+                            [applied] = applied>
+                            {{ applied.username }}
+                            </option>
+                        </select>
+                    </div>
+                        
+                    <div class="row">
+                        <button type="button" class="btn btn-secondary btn-sm" (click)="onApply(post)">Accept the Applicant</button>
+                    </div>
+                
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

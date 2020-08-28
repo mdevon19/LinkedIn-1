@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Post } from 'src/app/models/post';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-each-post',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EachPostComponent implements OnInit {
 
-  constructor() { }
+  @Input() post:Post;
+  @Output() onToggleEvent: EventEmitter<Post> = new EventEmitter();
+
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
+  }
+
+  onApply(post:Post){
+    this.userService.applyToPost(post).subscribe(u=>{
+      localStorage.setItem('user', JSON.stringify(u));
+    });
   }
 
 }

@@ -1,1 +1,27 @@
-<p>wall works!</p>
+<div class="text-center">
+    <div class="container">
+        <h4>Add New Jobs</h4>
+        <form>
+            <div class="form-group">
+                <label for="category_name">Category</label>
+                <app-category-drop-down>
+
+                </app-category-drop-down>
+          
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <input type="text" name="content" class="form-control"maxlength = "300" placeholder="Create a new job here" #content>
+            </div>
+            <button type="button" (click) ="addPost(category_name,content)" class="btn btn-primary">Create</button>
+        </form>
+        <br>
+        <h4><strong>Welcome to the Wall</strong></h4>
+        <app-each-post
+        *ngFor="let post of showPosts"
+        [post]= "post"
+        >
+        </app-each-post>
+    </div>
+</div>
+    

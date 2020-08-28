@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Category } from '../../models/category';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-each-category',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EachCategoryComponent implements OnInit {
 
+  @Input() category:Category;
+  @Output() onToggleEvent: EventEmitter<Category> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  onToggle(category){
+    category.toggle = !category.toggle;
+    console.log(category);
+    this.onToggleEvent.emit(category);
+  }
+
 
 }

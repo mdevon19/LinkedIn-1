@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Category } from 'src/app/models/category';
 import { Post } from 'src/app/models/post';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
   filterCategories:Category[];
   @Input() category: Category;
 
-  constructor() { 
+  constructor(private postService:PostService) { 
     this.filterCategories = [{
       id:0,
       title:'init',
@@ -24,6 +25,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.postService.getAllPosts().subscribe(p=>{
+      this.allPosts = p;
+      this.filterPosts();
+    })
   }
 
   onToggle(category:Category){

@@ -1,1 +1,19 @@
-<p>each-post works!</p>
+<div class="container">
+
+        <div class="d-flex justify-content-center">
+            <div class= "border border-secondary" style="padding: 10%; margin-bottom: 2em;">
+                <div class="text-center">
+                    
+                        <p style="word-wrap: break-word;">{{ post.desc }}</p>
+                    
+                    <div class="row">
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-secondary btn-sm" (onclick)="onApply(post)">Apply to Job!</button>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+
+</div>
