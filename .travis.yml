@@ -1,0 +1,31 @@
+stages:
+  - front
+#  - back
+ # - cloud_deploy
+
+branches:
+  only:
+    - master
+jobs:
+  include:
+  - stage: front
+    language: node_js
+    node_js: 
+      - 10
+    addons:
+      chrome: stable
+      
+    before_script:
+      - cd /
+      - cd / home/travis/build/mdevon19/LinkedIn
+      - npm install -g @angular/cli
+      - npm install
+    
+    script:
+      - ng test --watch=false --no-progress --browsers=ChromeHeadless
+      - ng build --prod
+      
+    workspaces:
+      create:
+        name: workspace1
+        paths: /home/travis/build/mdevon19/LinkedIn
