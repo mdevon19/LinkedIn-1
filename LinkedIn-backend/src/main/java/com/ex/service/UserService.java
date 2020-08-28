@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserService {
@@ -72,7 +73,7 @@ public class UserService {
 
     public User addPost(int id, Post p){
         User user = dao.getUserById(id);
-
+        p.setPoster(user);
         return dao.addPostForUser(user,p);
     }
 
@@ -90,5 +91,11 @@ public class UserService {
         User user = dao.getExistingUser(u);
 
         return dao.deleteApplied(user, p);
+    }
+
+    public Set<User> getAppliedUsers(int id) {
+        Post p = dao.getPostById(id);
+
+        return p.getAppliedUsers();
     }
 }

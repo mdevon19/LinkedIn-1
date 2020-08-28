@@ -1,12 +1,14 @@
 package com.ex.web;
 
 import com.ex.models.Post;
+import com.ex.models.RegisterForm;
 import com.ex.models.User;
 import com.ex.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
@@ -58,13 +60,12 @@ public class UserController {
 
     @RequestMapping(value="/addNewUser", method = RequestMethod.POST, produces =  MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity getNewUser(@RequestParam("username") String username,@RequestParam("password") String password,
-                                     @RequestParam("first_name") String firstName, @RequestParam("last_name") String lastName){
+    public ResponseEntity getNewUser(@RequestBody RegisterForm form){
             User u = new User();
-            u.setUsername(username);
-            u.setFirstName(firstName);
-            u.setLastName(lastName);
-            u.setPassword(password);
+            u.setUsername(form.getUsername());
+            u.setFirstName(form.getFirst_name());
+            u.setLastName(form.getLast_name());
+            u.setPassword(form.getPassword());
         try{
             return new ResponseEntity(this.service.getNewUser(u), HttpStatus.OK);
         }catch(EntityNotFoundException ex){
@@ -80,7 +81,7 @@ public class UserController {
 
     }
 
-    @GetMapping(path="{username}/apply/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path="{username}/apply/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity applyUser(@PathVariable int id, @PathVariable String username){
         try{
@@ -100,9 +101,11 @@ public class UserController {
         }
     }
 
-    @GetMapping(path="addPost/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path="addPost/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity addPostUser(@PathVariable int id, @RequestBody Post p){
+        System.out.println(p);
+        System.out.println("addPost");
         try {
             return new ResponseEntity(this.service.addPost(id, p), HttpStatus.OK);
         }catch(EntityNotFoundException ex){
@@ -126,6 +129,16 @@ public class UserController {
     public ResponseEntity deleteApply(@RequestBody Post p, @PathVariable String username){
         try {
             return new ResponseEntity(this.service.deleteApply(username,p), HttpStatus.OK);
+        }catch(EntityNotFoundException ex){
+            return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping(path="appliedUsers/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseEntity getAppliedFromPost(@PathVariable int id){
+        try{
+            return new ResponseEntity(this.service.getAppliedUsers(id), HttpStatus.OK);
         }catch(EntityNotFoundException ex){
             return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
         }

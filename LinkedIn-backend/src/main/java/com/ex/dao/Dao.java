@@ -55,5 +55,7 @@ public interface Dao {
     void addLog(String m);
 
     void deleteAllPostsForUser(User u);
+
+    List<User> getAppliedUsers(Post p);
 }
 

@@ -47,11 +47,11 @@ logout() {
 }
 
 getApplyUsersByPost(p:Post):Observable<User[]>{
-  return this.http.get<User[]>("getApplied");
+  return this.http.get<User[]>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/appliedUsers/"+p.id);
 }
 
-register(firstName, lastName, username, password): Observable<User> {
-  throw new Error("Method not implemented.");
+register(formData:any): Observable<User> {
+  return this.http.post<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/addNewUser",formData);
 }
 
 applyToPost(post:Post):Observable<User>{

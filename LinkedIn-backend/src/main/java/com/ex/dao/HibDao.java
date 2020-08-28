@@ -406,5 +406,10 @@ public class HibDao implements Dao {
         }
     }
 
+    @Override
+    public List<User> getAppliedUsers(Post p) {
+        return null;
+    }
+
 
 }

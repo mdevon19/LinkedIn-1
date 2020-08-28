@@ -40,8 +40,14 @@ export class RegisterComponent implements OnInit {
   }
   this.loading = true;
 
-  this.userService.register(this.f.firstName.value,this.f.lastName.value,
-    this.f.username.value,this.f.password.value).subscribe(u =>{
+  let formData: any = {
+  first_name: this.form.get('firstName').value,
+  last_name: this.form.get('lastName').value,
+  username: this.form.get('username').value,
+  password: this.form.get('password').value
+  };
+
+  this.userService.register(formData).subscribe(u =>{
       if(u == null){
         console.log("not accepted");
       }

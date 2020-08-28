@@ -18,8 +18,10 @@ export class EachPostComponent implements OnInit {
   }
 
   onApply(post:Post){
+    console.log("applying");
     this.userService.applyToPost(post).subscribe(u=>{
       localStorage.setItem('user', JSON.stringify(u));
+      console.log(u);
     });
   }
 

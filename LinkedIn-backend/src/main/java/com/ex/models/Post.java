@@ -126,7 +126,6 @@ public class Post {
                 "id=" + id +
                 ", desc='" + desc + '\'' +
                 ", postCat=" + postCat +
-                ", poster=" + poster.getId() +
                 '}';
     }
 

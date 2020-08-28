@@ -1,14 +1,20 @@
 <div class="container">
 
-        <div class="d-flex justify-content-center">
+        <div class="col-md-12 col-md-offset-3 text-center">
             <div class= "border border-secondary" style="padding: 10%; margin-bottom: 2em;">
                 <div class="text-center">
                     
-                        <p style="word-wrap: break-word;">{{ post.desc }}</p>
+                        <p style="word-wrap: break-word;">Content: {{ post.desc }}</p>
+
+                        <div class="row">
+                            <div class="col-md-12 col-md-offset-3 text-center">
+                                <p>Category: {{ post.postCat.title }}</p>
+                            </div>
+                        </div>
                     
                     <div class="row">
-                        <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-secondary btn-sm" (onclick)="onApply(post)">Apply to Job!</button>
+                        <div class="col-md-12 col-md-offset-3 text-center">
+                            <button type="button" class="btn btn-secondary btn-sm" (click)="onApply(post)">Apply to Job!</button>
                         </div>
                     </div>
                 

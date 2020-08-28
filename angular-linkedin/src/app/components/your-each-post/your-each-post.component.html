@@ -1,29 +1,38 @@
 <div class="container">
 
-    <div class="d-flex justify-content-center">
+    <div class="col-md-12 col-md-offset-3 text-center">
         <div class= "border border-secondary" style="padding: 10%; margin-bottom: 2em;">
             <div class="text-center">
                 <div class="row">
-                    <p>{{ post.desc }}</p>
+                    <div class="col-md-12 col-md-offset-3 text-center">
+                    <p>Content: {{ post.desc }}</p>
+                    </div>
                 </div>
                 
                     <div class="row">
-                        
-                        <label for="appliedUsers">Pick an Applicant:</label>
-                        
+                        <div class="col-md-12 col-md-offset-3 text-center">
+                        <label for="appliedUsers"><b>Pick an Applicant:</b></label>
+                        </div>
                     </div>
                     <div style="margin-bottom: 2em;" class="row">
+                        <div class="col-md-12 col-md-offset-3 text-center">
                         <select name="appliedUsers" id="appliedUsers">
+                            <option
+                            *ngIf="appliedLength == 0"
+                            >none</option>
                             <option
                             *ngFor="let applied of appliedUsers"
                             [applied] = applied>
                             {{ applied.username }}
                             </option>
                         </select>
+                        </div>
                     </div>
                         
                     <div class="row">
+                        <div class="col-md-12 col-md-offset-3 text-center">
                         <button type="button" class="btn btn-secondary btn-sm" (click)="onApply(post)">Accept the Applicant</button>
+                        </div>
                     </div>
                 
 

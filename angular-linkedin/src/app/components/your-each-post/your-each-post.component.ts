@@ -14,19 +14,21 @@ export class YourEachPostComponent implements OnInit {
   @Input() post:Post;
 
   appliedUsers:User[];
+  appliedLength:number;
 
   constructor(private userService:UserService,
     private postService:PostService) { }
 
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe(u=>{
+    this.userService.getApplyUsersByPost(this.post).subscribe(u=>{
       this.setAppliedUsers(u);
-      
+      this.appliedLength = this.appliedUsers.length;
     })
   }
 
   onApply(post:Post){
     console.log("deleted");
+    if(this.appliedUsers.length !== 0){
     this.postService.deletePost(post).subscribe(p=>{
       if(p === "deleted"){
         console.log("deleted");
@@ -36,6 +38,7 @@ export class YourEachPostComponent implements OnInit {
         });
       }
     })
+  }
   }
 
   setAppliedUsers(users:User[]){
