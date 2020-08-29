@@ -21,8 +21,7 @@ jobs:
       - cd / 
       - cd  /home/travis/build/mdevon19/LinkedIn-1/LinkedIn-backend/angular-linkedin
       - npm install -g @angular/cli
-      - npm install
-    
+      - npm install    
     script:
       - ng test --watch=false --no-progress --browsers=ChromeHeadless
       - ng build --prod
