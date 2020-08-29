@@ -12,6 +12,9 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * THis is used to get category data from our backend
+ */
 export class CategoryService {
 
   allCategories:Category[];
@@ -21,6 +24,10 @@ export class CategoryService {
 
   constructor(private http:HttpClient) { }
 
+  /**
+   * This is used to get an observable of a category array that holds all categories
+   * in our database
+   */
   getAllCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.allCategoryUrl);
 

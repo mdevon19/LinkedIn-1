@@ -10,6 +10,11 @@ import { CategoryService } from 'src/app/services/category.service';
   templateUrl: './wall.component.html',
   styleUrls: ['./wall.component.css']
 })
+/**
+ * This component is in charge of the components and functionality
+ * of the full wall page
+ * 
+ */
 export class WallComponent implements OnInit, DoCheck{
 
   @Input() filterCategories:Category[];
@@ -23,6 +28,12 @@ export class WallComponent implements OnInit, DoCheck{
     private categoryService:CategoryService) { }
   
   
+    /**
+     * This will check if the filterCategories has changed, if so it will 
+     * filter the posts based on the categories inside the filterCategories array
+     * It will then change the lengthCheck to the length of the filterCategories
+     * 
+     */
     ngDoCheck(): void {
 
       console.log("changes");
@@ -55,6 +66,10 @@ export class WallComponent implements OnInit, DoCheck{
     }
   }
 
+  /**
+   * This will set the selectedCategory as the Developer category 
+   * Then get all the posts and capture them from the post service
+   */
   ngOnInit(): void {
     this.showPosts = [];
 
@@ -78,6 +93,14 @@ export class WallComponent implements OnInit, DoCheck{
 
   }
 
+  /**
+   * This will run when a user tries to add a post
+   * It will capture the category and content of the post
+   * Then it will add the post to the database by using
+   * the user service and capture the new user data
+   * @param content 
+   * 
+   */
   addPost(content){
     this.categoryService.getAllCategories().subscribe(c =>{
       let allCategories:Category[] = c;
@@ -97,6 +120,11 @@ export class WallComponent implements OnInit, DoCheck{
     })
    }
 
+   /**
+    * This will run when the user changes the category in the drop down
+    * It will set the selectedCategory as that new category
+    * @param c - the category that was just selected
+    */
    onChangeEvent(c:Category){
       this.selectedCategory = c;
       

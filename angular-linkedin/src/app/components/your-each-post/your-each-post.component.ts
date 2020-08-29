@@ -9,6 +9,9 @@ import { PostService } from 'src/app/services/post.service';
   templateUrl: './your-each-post.component.html',
   styleUrls: ['./your-each-post.component.css']
 })
+/**
+ * This component is in charge of each post of the user 
+ */
 export class YourEachPostComponent implements OnInit {
 
   @Input() post:Post;
@@ -19,6 +22,9 @@ export class YourEachPostComponent implements OnInit {
   constructor(private userService:UserService,
     private postService:PostService) { }
 
+    /**
+     * This captures all of the users thats applied to the post using the user service
+     */
   ngOnInit(): void {
     this.userService.getApplyUsersByPost(this.post).subscribe(u=>{
       this.setAppliedUsers(u);
@@ -26,6 +32,12 @@ export class YourEachPostComponent implements OnInit {
     })
   }
 
+  /**
+   * This runs when the user accepts an applicant of their post
+   * It will delete the post from the database using the post service,
+   * then capture the new user data in sends back
+   * @param post 
+   */
   onApply(post:Post){
     console.log("deleted");
     if(this.appliedUsers.length !== 0){
@@ -41,6 +53,10 @@ export class YourEachPostComponent implements OnInit {
   }
   }
 
+  /**
+   * This sets the appliedUsers array
+   * @param users - an array of type User
+   */
   setAppliedUsers(users:User[]){
     this.appliedUsers = users;
     console.log(this.appliedUsers);

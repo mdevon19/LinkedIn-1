@@ -9,6 +9,9 @@ import { OuterSubscriber } from 'rxjs/internal/OuterSubscriber';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+/**
+ * This component is used to contain all components that are inside the home html page
+ */
 export class HomeComponent implements OnInit {
 
   allPosts:Post[];
@@ -17,6 +20,10 @@ export class HomeComponent implements OnInit {
   @Output() filterCategories:Category[];
   @Input() category: Category;
 
+  /**
+   * It sets the filterCategories array to a run sized array with a defualt category
+   * @param postService 
+   */
   constructor(private postService:PostService) { 
     this.filterCategories = [{
       id:0,
@@ -25,6 +32,10 @@ export class HomeComponent implements OnInit {
     }]
   }
 
+  /**
+   * when created this components caprues all posts in the database using the post service
+   * 
+   */
   ngOnInit(): void {
     this.postService.getAllPosts().subscribe(p=>{
       this.allPosts = p;
@@ -32,6 +43,12 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  /**
+   * This function is run when the categories component emits a category up to here
+   * It will push or remove teh category from the filterCategories depending on if
+   * the toggle property is true or false
+   * @param category - the category that was just selected or unselected
+   */
   onToggle(category:Category){
     if(category.toggle){
       this.filterCategories.push(category);
@@ -53,6 +70,9 @@ export class HomeComponent implements OnInit {
     
   }
 
+  /**
+   * This function filters the posts to only show the posts of the catgories selected
+   */
   filterPosts(){
     this.showPosts = [];
 

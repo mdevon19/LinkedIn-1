@@ -7,6 +7,10 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './each-post.component.html',
   styleUrls: ['./each-post.component.css']
 })
+/**
+ * This holds each post and is in charge of dealing with when a user applys
+ * 
+ */
 export class EachPostComponent implements OnInit {
 
   @Input() post:Post;
@@ -17,6 +21,12 @@ export class EachPostComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * This function gets called when a user applys to a post
+   * It sends the request to the backend using the user service and then captures the new user data
+   * @param post - the post the user just applied to
+   * 
+   */
   onApply(post:Post){
     console.log("applying");
     this.userService.applyToPost(post).subscribe(u=>{

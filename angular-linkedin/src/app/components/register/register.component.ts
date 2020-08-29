@@ -8,6 +8,9 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+/**
+ * This component is used to handle all functionality of the register page
+ */
 export class RegisterComponent implements OnInit {
   form: FormGroup;
   loading = false;
@@ -20,6 +23,9 @@ export class RegisterComponent implements OnInit {
     private userService: UserService
   ) { }
 
+  /**
+   * This just sets the validations for the form, so it can be used later
+   */
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -31,6 +37,13 @@ export class RegisterComponent implements OnInit {
 
   get f() { return this.form.controls; }
 
+  /**
+   * This will be called when a user tries to create an account
+   * It will check if the form is valid, then use the user service to check
+   * if there is a user with the desired username, if there is not it will take the
+   * user to the log in page and create the account, if there is it will not create
+   * the user and stay on this page
+   */
   onSubmit(){
 
     this.submitted = true;
