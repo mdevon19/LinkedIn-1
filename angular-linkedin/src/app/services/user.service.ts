@@ -98,4 +98,18 @@ addPost(post:Post):Observable<User>{
 getUserById(id:number){
   return this.http.get<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/"+id);
 }
+
+/**
+ * This will delete an application to a post for the user in the database and return an observable of the updated user data
+ * @param p - the id of the post they are unapplying to
+ * @param u - the user that is unapplying
+ */
+deleteApply(p:number,u:User): Observable<User>{
+  return this.http.get<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/deleteApply/"+u.username+"/"+p);
+}
+
+getPosterByPost(p:Post):Observable<User>{
+  return this.http.get<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/poster/"+p.id);
+}
+
 }

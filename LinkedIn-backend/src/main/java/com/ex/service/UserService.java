@@ -152,12 +152,13 @@ public class UserService {
      * This will delete a user application  to a post
      *
      * @param u - the username of the  user deleting their application
-     * @param p - the post that the user is unapplying to
+     * @param id - the id of the post that the user is unapplying to
      * @return - the changed and persisted user
      */
-    public User deleteApply(String u, Post p) {
+    public User deleteApply(String u, int id) {
 
         User user = dao.getExistingUser(u);
+        Post p = dao.getPostById(id);
 
         return dao.deleteApplied(user, p);
     }
@@ -172,5 +173,11 @@ public class UserService {
         Post p = dao.getPostById(id);
 
         return p.getAppliedUsers();
+    }
+
+    public User getUserByPost(int id){
+        Post p = dao.getPostById(id);
+        User u = dao.getUserById(p.getPoster().getId());
+        return u;
     }
 }

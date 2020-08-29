@@ -15,6 +15,7 @@ import { PostService } from 'src/app/services/post.service';
 export class YourEachPostComponent implements OnInit {
 
   @Input() post:Post;
+  user:User;
 
   appliedUsers:User[];
   appliedLength:number;
@@ -29,6 +30,9 @@ export class YourEachPostComponent implements OnInit {
     this.userService.getApplyUsersByPost(this.post).subscribe(u=>{
       this.setAppliedUsers(u);
       this.appliedLength = this.appliedUsers.length;
+      this.userService.getPosterByPost(this.post).subscribe(u=>{
+        this.user = u;
+      })
     })
   }
 
@@ -42,13 +46,12 @@ export class YourEachPostComponent implements OnInit {
     console.log("deleted");
     if(this.appliedUsers.length !== 0){
     this.postService.deletePost(post).subscribe(p=>{
-      if(p === "deleted"){
         console.log("deleted");
         this.userService.getUserById(JSON.parse(localStorage.getItem('user')).id).subscribe(u=>{
             localStorage.setItem('user',JSON.stringify(u));
             location.reload();
         });
-      }
+      
     })
   }
   }

@@ -1,0 +1,27 @@
+<div class="container">
+
+    <div class="col-md-12 col-md-offset-3 text-center">
+        <div class= "border border-secondary" style="padding: 10%; margin-bottom: 2em;">
+            <div class="text-center">
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-3 text-center">
+                    <p>Content: {{ post.desc }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-3 text-center">
+                    <p><b>posted by {{ user.firstName }} {{user.lastName }}</b></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-3 text-center">
+                    <button type="button" class="btn btn-secondary btn-sm" (click)="onDelete(post)">Delete Apply</button>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+
+</div>

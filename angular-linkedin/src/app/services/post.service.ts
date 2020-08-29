@@ -33,7 +33,16 @@ export class PostService {
    * This will return an observable that holds a string that will say "deleted" if deleted and "not-deleted" if it wasn't
    * @param p - the post to delete
    */
-  deletePost(p:Post): Observable<any>{
-    return this.http.get<any>("http://localhost:8080/LinkedIn_backend_war_exploded/api/posts/delete/" + p.id);
+  deletePost(p:Post): Observable<string>{
+    return this.http.get<string>("http://localhost:8080/LinkedIn_backend_war_exploded/api/posts/delete/" + p.id);
   }
+
+  /**
+   * This will return an observable that holds an array of posts that a user applied to
+   * @param u - the user to get the applied post of
+   */
+  appliedPosts(u:User): Observable<Post[]>{
+    return this.http.get<Post[]>("http://localhost:8080/LinkedIn_backend_war_exploded/api/posts/applied/"+u.username);
+  }
+
 }

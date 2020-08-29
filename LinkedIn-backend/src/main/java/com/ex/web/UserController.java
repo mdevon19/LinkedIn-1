@@ -124,11 +124,11 @@ public class UserController {
         }
     }
 
-    @GetMapping(path="deleteApply/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path="deleteApply/{username}/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity deleteApply(@RequestBody Post p, @PathVariable String username){
+    public ResponseEntity deleteApply(@PathVariable int id, @PathVariable String username){
         try {
-            return new ResponseEntity(this.service.deleteApply(username,p), HttpStatus.OK);
+            return new ResponseEntity(this.service.deleteApply(username,id), HttpStatus.OK);
         }catch(EntityNotFoundException ex){
             return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
         }
@@ -139,6 +139,16 @@ public class UserController {
     public ResponseEntity getAppliedFromPost(@PathVariable int id){
         try{
             return new ResponseEntity(this.service.getAppliedUsers(id), HttpStatus.OK);
+        }catch(EntityNotFoundException ex){
+            return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping(path="poster/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseEntity getPosterByPost(@PathVariable int id){
+        try{
+            return new ResponseEntity(this.service.getUserByPost(id), HttpStatus.OK);
         }catch(EntityNotFoundException ex){
             return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
         }

@@ -1,11 +1,16 @@
 <div class="container">
 
         <div class="col-md-12 col-md-offset-3 text-center">
-            <div class= "border border-secondary" style="padding: 10%; margin-bottom: 2em;">
-                <div class="text-center">
-                    
-                        <p style="word-wrap: break-word;">Content: {{ post.desc }}</p>
-
+            <div class= "border border-secondary" style="padding: 5%; margin-bottom: 2em;">
+                    <div class="text-center">
+                        <div class="row">
+                            <p style="word-wrap: break-word;"><b>{{ user.firstName }} {{user.lastName }} posted:</b></p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-md-offset-3 text-center">
+                            <p style="word-wrap: break-word;">{{ post.desc }}</p>
+                        </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-12 col-md-offset-3 text-center">
                                 <p>Category: {{ post.postCat.title }}</p>
@@ -18,7 +23,7 @@
                         </div>
                     </div>
                 
-                </div>
+                    </div>
             </div>
         </div>
 

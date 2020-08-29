@@ -50,11 +50,12 @@ public class PostService {
      * @param username - the username of the user to get the posts of
      * @return - a list of posts that the specific user posted
      */
-    public List<Post> getPosts(String username) {
+    public Set<Post> getPosts(int id) {
 
-        User user = dao.getExistingUser(username);
+        User user = dao.getUserById(id);
+        System.out.println(user);
 
-        return dao.getPostsByUser(user);
+        return user.getUserPosts();
 
     }
 

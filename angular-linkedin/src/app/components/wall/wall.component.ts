@@ -113,7 +113,10 @@ export class WallComponent implements OnInit, DoCheck{
           }
           this.userService.addPost(post).subscribe(u=>{
             localStorage.setItem('user', JSON.stringify(u));
-            this.allPosts.push(post);
+            this.postService.getAllPosts().subscribe(p=>{
+              this.allPosts = p;
+            })
+            
           })
         }
       }

@@ -66,7 +66,7 @@ public class WebTests {
         Assert.assertNotNull("did not find the user", uc.checkCreds(testUser.getUsername(),testUser.getPassword()));
         Post p = dao.getPostById(69);
         Assert.assertNotNull("did not get the applied users", uc.getAppliedFromPost(69 ));
-        Assert.assertNotNull("did not delete apply", uc.deleteApply(p,testUser.getUsername()));
+        Assert.assertNotNull("did not delete apply", uc.deleteApply(p.getId(),testUser.getUsername()));
 
 
         Assert.assertTrue("did not delete user", uc.deleteUser("test").equals("deleted"));
@@ -77,7 +77,7 @@ public class WebTests {
 
         Assert.assertNotNull("did not get all posts", pc.getAllPosts());
         Assert.assertNotNull("did not get the post", pc.getPostById(69));
-        Assert.assertNotNull("did not get posts", pc.getPostByUser("test3"));
+        Assert.assertNotNull("did not get posts", pc.getPostByUser(74));
         Assert.assertNotNull("did not get applied posts", pc.getPostByApplied("test3"));
         Assert.assertNotNull("did not get posts by category", pc.getPostByCategory(1));
 

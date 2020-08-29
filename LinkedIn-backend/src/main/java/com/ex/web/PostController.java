@@ -41,11 +41,11 @@ public class PostController {
         }
     }
 
-    @GetMapping(path="poster/{username}", produces=MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path="poster/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity getPostByUser(@PathVariable String username){
+    public ResponseEntity getPostByUser(@PathVariable int id){
         try{
-            return new ResponseEntity((this.service.getPosts(username)), HttpStatus.OK);
+            return new ResponseEntity((this.service.getPosts(id)), HttpStatus.OK);
         }catch(EntityNotFoundException ex){
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
@@ -73,12 +73,12 @@ public class PostController {
 
     @GetMapping(path="delete/{id}", produces=MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
-    public String deletePost(@PathVariable int id){
+    public ResponseEntity deletePost(@PathVariable int id){
         if(this.service.deletePost(id)){
-            return "deleted";
+            return new ResponseEntity(HttpStatus.OK);
         }
         else{
-            return "not-deleted or not found";
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 }

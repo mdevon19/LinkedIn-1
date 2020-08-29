@@ -82,7 +82,11 @@ public class User {
     }
 
     public void deleteApplied(Post p){
-        appliedPosts.remove(p);
+        for( Post post : appliedPosts){
+            if(post.getId() == p.getId()){
+                appliedPosts.remove(post);
+            }
+        }
     }
 
     public Set<Category> getUserCats() {
