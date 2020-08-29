@@ -23,7 +23,7 @@ jobs:
       - npm install -g @angular/cli
       - npm install    
     script:
-      - ng test --watch=false --no-progress --browsers=ChromeHeadless
+      #- ng test --watch=false --no-progress --browsers=ChromeHeadless
       - ng build --prod
       
     workspaces:
