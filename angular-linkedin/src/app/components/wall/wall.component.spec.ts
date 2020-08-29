@@ -33,14 +33,4 @@ describe('WallComponent', () => {
   it('can load instance', () => {
     expect(component).toBeTruthy();
   });
-  describe('ngOnInit', () => {
-    it('makes expected calls', () => {
-      const postServiceStub: PostService = fixture.debugElement.injector.get(
-        PostService
-      );
-      spyOn(postServiceStub, 'getAllPosts').and.callThrough();
-      component.ngOnInit();
-      expect(postServiceStub.getAllPosts).toHaveBeenCalled();
-    });
-  });
 });
