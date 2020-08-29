@@ -1,7 +1,11 @@
 stages:
   - front
-#  - back
- # - cloud_deploy
+  - back
+  - dockerdeploy
+  
+  
+dist: trusty
+sudo: required
 
 branches:
   only:
@@ -10,14 +14,13 @@ jobs:
   include:
   - stage: front
     language: node_js
-    node_js: 
+    node_js:
       - 10
     addons:
       chrome: stable
-      
     before_script:
-      - cd /
-      - cd / home/travis/build/mdevon19/LinkedIn
+      - cd / 
+      - cd  /home/travis/build/mdevon19/LinkedIn-1/LinkedIn-backend/angular-linkedin
       - npm install -g @angular/cli
       - npm install
     
@@ -28,4 +31,41 @@ jobs:
     workspaces:
       create:
         name: workspace1
-        paths: /home/travis/build/mdevon19/LinkedIn
+        paths: /home/travis/build/mdevon19/LinkedIn-1/LinkedIn-backend
+  - stage: back
+    language: java
+    jdk: oraclejdk8
+    git:
+      clone: false
+    workspaces:
+      use: workspace1
+      create:
+        name: workspace2
+        paths: /home/travis/build/mdevon19/LinkedIn-1
+    before_script:
+      - cd /
+      - cd  /home/travis/build/mdevon19/LinkedIn-1/LinkedIn-backend
+    script:
+      - ls ./angular-linkedin
+      - mvn package -DskipTests
+      - ls
+      
+  - stage: dockerdeploy
+    language: generic
+    git:
+      clone: false
+      workspaces:
+        use: workspace2
+      before_script:
+      - cd /
+      - cd  home/travis/build/mdevon19/LinkedIn-1/
+      services:
+        - docker
+      script:
+        - ls
+        - docker build -t linkedin ./LinkedIn-backend
+      after_success:
+        - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        - docker images
+        - docker tag linkedin $DOCKER_USERNAME/linkedin:latest
+        - docker push $DOCKER_USERNAME/linkedin:latest
