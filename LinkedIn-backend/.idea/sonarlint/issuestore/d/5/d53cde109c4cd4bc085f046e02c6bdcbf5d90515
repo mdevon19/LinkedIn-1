@@ -1,9 +1,5 @@
 
-Q
-java:S3740J"/Provide the parametrized type for this generic.(Ş´³¼şÿÿÿÿ8õÅÍÂ.
-a
-java:S1128"?Remove this unused import 'org.hibernate.annotations.OnDelete'.(¸´€áùÿÿÿÿ8ïôÇÙÂ.
-g
-java:S1128"ERemove this unused import 'org.hibernate.annotations.OnDeleteAction'.(ÅöŒ”üÿÿÿÿ8ïôÇÙÂ.
 {
-java:S2293F"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚é”áşÿÿÿÿ8ÔÀ¸·Â.
+java:S2293O"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚é”áşÿÿÿÿ8ÔÀ¸·Â.
+Q
+java:S3740S"/Provide the parametrized type for this generic.(Ş´³¼şÿÿÿÿ8õÅÍÂ.

@@ -56,6 +56,5 @@ public interface Dao {
 
     void deleteAllPostsForUser(User u);
 
-    List<User> getAppliedUsers(Post p);
 }
 

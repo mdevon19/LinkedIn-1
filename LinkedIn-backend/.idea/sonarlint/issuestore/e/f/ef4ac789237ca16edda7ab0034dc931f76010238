@@ -1,59 +1,67 @@
 
-e
-java:S4488;"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(İ•ÏØüÿÿÿÿ
+E
+java:S3740F"/Provide the parametrized type for this generic.(ó©œ£
+Q
+java:S37407"/Provide the parametrized type for this generic.(î´´ıÿÿÿÿ8·¨µÃ.
+E
+java:S3740p"/Provide the parametrized type for this generic.(Öş
+R
+java:S3740"/Provide the parametrized type for this generic.(®Ô¿Íıÿÿÿÿ8õõÂ­Ã.
+Q
+java:S3740+"/Provide the parametrized type for this generic.(î´´ıÿÿÿÿ8¨ŞêšÂ.
 \
-java:S4684€"@Replace this persistent entity with a simple POJO or DTO object.(İ•–­ÿÿÿÿÿ
-V
-java:S4684i"@Replace this persistent entity with a simple POJO or DTO object.(µÁê¾
-E
-java:S3740U"/Provide the parametrized type for this generic.(‘Çˆ¬
-E
-java:S3740E"/Provide the parametrized type for this generic.(ó©œ£
-Z	java:S106j"9Replace this use of System.out or System.err by a logger.(úõ–áùÿÿÿÿ8±ÖÎ—Ã.
-Q
-java:S3740&"/Provide the parametrized type for this generic.(Ë»À¶ıÿÿÿÿ8¨ŞêšÂ.
+java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(İ•–­ÿÿÿÿÿ
 J
-java:S3740"/Provide the parametrized type for this generic.(ìüºãøÿÿÿÿ
+java:S3740y"/Provide the parametrized type for this generic.(ÿŸ­’şÿÿÿÿ
 E
-java:S3740o"/Provide the parametrized type for this generic.(Öş
-E
-java:S3740W"/Provide the parametrized type for this generic.(í¤Ï¼
-F
-java:S3740„"/Provide the parametrized type for this generic.(Öş
-E
-java:S3740u"/Provide the parametrized type for this generic.(Çîï‘
+java:S3740d"/Provide the parametrized type for this generic.(Öş
 J
-java:S3740"/Provide the parametrized type for this generic.(Ã–Æ‹ıÿÿÿÿ
+java:S3740?"/Provide the parametrized type for this generic.(°„À÷ûÿÿÿÿ
+L
+java:S3740‹"/Provide the parametrized type for this generic.(†–î	8¿î¾­Ã.
+J
+java:S3740 "/Provide the parametrized type for this generic.(Ã–Æ‹ıÿÿÿÿ
+Z	java:S106l"9Replace this use of System.out or System.err by a logger.(çßó¡üÿÿÿÿ8Á÷Î—Ã.
 E
-java:S3740="/Provide the parametrized type for this generic.(ÚÉçÑ
-K
-java:S3740€"/Provide the parametrized type for this generic.(İ•–­ÿÿÿÿÿ
+java:S37404"/Provide the parametrized type for this generic.(ğ³“È
 E
-java:S3740Y"/Provide the parametrized type for this generic.(Öş
-E
-java:S3740‚"/Provide the parametrized type for this generic.(Ùòøg
-N	java:S106"9Replace this use of System.out or System.err by a logger.(¨åÅı
-Q
-java:S3740)"/Provide the parametrized type for this generic.(î´´ıÿÿÿÿ8¨ŞêšÂ.
+java:S3740{"/Provide the parametrized type for this generic.(Öş
 e
-java:S4488s"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¥â¶¨8·¨µÃ.
+java:S4488="JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(İ•ÏØüÿÿÿÿ
 E
-java:S3740a"/Provide the parametrized type for this generic.(º…ô‹
-Z	java:S106k"9Replace this use of System.out or System.err by a logger.(çßó¡üÿÿÿÿ8Á÷Î—Ã.
+java:S3740b"/Provide the parametrized type for this generic.(º…ô‹
 E
-java:S3740i"/Provide the parametrized type for this generic.(µÁê¾
+java:S3740X"/Provide the parametrized type for this generic.(í¤Ï¼
+K
+java:S3740"/Provide the parametrized type for this generic.(İ•–­ÿÿÿÿÿ
+e
+java:S1128"CRemove this unused import 'org.springframework.util.MultiValueMap'.(·ÚÀŞùÿÿÿÿ8êå˜¯Ã.
+N	java:S106"9Replace this use of System.out or System.err by a logger.(¨åÅı
+V
+java:S4684j"@Replace this persistent entity with a simple POJO or DTO object.(µÁê¾
 E
-java:S3740m"/Provide the parametrized type for this generic.(°‘äø
+java:S3740Z"/Provide the parametrized type for this generic.(Öş
+Z	java:S106w"9Replace this use of System.out or System.err by a logger.(­ ‘ˆüÿÿÿÿ8·¨µÃ.
 E
-java:S3740c"/Provide the parametrized type for this generic.(Öş
-Z	java:S106v"9Replace this use of System.out or System.err by a logger.(­ ‘ˆüÿÿÿÿ8·¨µÃ.
+java:S3740ƒ"/Provide the parametrized type for this generic.(Ùòøg
 E
-java:S3740z"/Provide the parametrized type for this generic.(Öş
+java:S3740n"/Provide the parametrized type for this generic.(°‘äø
+Z	java:S106k"9Replace this use of System.out or System.err by a logger.(úõ–áùÿÿÿÿ8±ÖÎ—Ã.
 E
-java:S37402"/Provide the parametrized type for this generic.(ğ³“È
+java:S3740j"/Provide the parametrized type for this generic.(µÁê¾
 J
-java:S3740x"/Provide the parametrized type for this generic.(ÿŸ­’şÿÿÿÿ
-Q
-java:S37405"/Provide the parametrized type for this generic.(î´´ıÿÿÿÿ8·¨µÃ.
+java:S3740"/Provide the parametrized type for this generic.(ìüºãøÿÿÿÿ
 E
-java:S3740_"/Provide the parametrized type for this generic.(Ô¸Ãš
+java:S3740V"/Provide the parametrized type for this generic.(‘Çˆ¬
+F
+java:S3740…"/Provide the parametrized type for this generic.(Öş
+e
+java:S4488t"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¥â¶¨8·¨µÃ.
+Q
+java:S3740("/Provide the parametrized type for this generic.(Ë»À¶ıÿÿÿÿ8¨ŞêšÂ.
+E
+java:S3740`"/Provide the parametrized type for this generic.(Ô¸Ãš
+E
+java:S3740v"/Provide the parametrized type for this generic.(Çîï‘
+M
+java:S3740"/Provide the parametrized type for this generic.(Öş8Å¿­Ã.

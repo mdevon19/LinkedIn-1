@@ -39,3 +39,5 @@ a
 1src/main/java/com/ex/service/CategoryService.java,8\6\864cc02576ea962d7c086f065028fcb130a73bc8
 O
 src/test/java/ServiceTests.java,4\8\4810b744907a47e30d98bab205822e939d663ea5
+]
+-src/main/java/com/ex/models/RegisterForm.java,3\9\3934b8c99efa3cf25551be7cd149b69b1e4c846c

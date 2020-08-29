@@ -1,39 +1,33 @@
 
 R
-java:S3740†"/Provide the parametrized type for this generic.(¼„ğ£üÿÿÿÿ8ù»–ÃÂ.
-I
-java:S1168è"+Return an empty collection instead of null.(¥¹ï8ù»–ÃÂ.
+java:S3740Î"/Provide the parametrized type for this generic.(¼„ğ£üÿÿÿÿ8ù»–ÃÂ.
 R
-java:S3740Ü"/Provide the parametrized type for this generic.(¼„ğ£üÿÿÿÿ8ù»–ÃÂ.
-\
-java:S1155Œ">Use isEmpty() to check whether the collection is empty or not.(ã…Øú8ù»–ÃÂ.
-g
-java:S1128"QRemove this unused import 'org.springframework.transaction.annotation.Isolation'.(±§ÂÔ
-I
-java:S1905S"'Remove this unnecessary cast to "List".(¡ƒÃ–úÿÿÿÿ8ù»–ÃÂ.
-a
-java:S1155ß">Use isEmpty() to check whether the collection is empty or not.(º²œÄıÿÿÿÿ8ù»–ÃÂ.
-_
-java:S1126Œ"AReplace this if-then-else statement by a single return statement.(ã…Øú8ù»–ÃÂ.
-\
-java:S1155â">Use isEmpty() to check whether the collection is empty or not.(ã…Øú8ù»–ÃÂ.
-_
-java:S1126â"AReplace this if-then-else statement by a single return statement.(ã…Øú8ù»–ÃÂ.
-I
-java:S1905;"'Remove this unnecessary cast to "List".(‘ö®úÿÿÿÿ8¿ÃÂ.
+java:S3740…"/Provide the parametrized type for this generic.(ßÑäüÿÿÿÿ8†¨µÃ.
 M
-java:S3740ó"/Provide the parametrized type for this generic.(…÷™–8ù»–ÃÂ.
-Q
-java:S1128";Remove this unused import 'javax.annotation.PostConstruct'.(›ÅÁ
+java:S3740³"/Provide the parametrized type for this generic.(…÷™–8ù»–ÃÂ.
+R
+java:S3740À"/Provide the parametrized type for this generic.(ßÑäüÿÿÿÿ8†¨µÃ.
+a
+java:S1155Ó">Use isEmpty() to check whether the collection is empty or not.(º²œÄıÿÿÿÿ8ù»–ÃÂ.
 S
-java:S1751@"6Remove this "return" statement or make it conditional.(Áìî¹8’òÄÂ.
+java:S1751S"6Remove this "return" statement or make it conditional.(Áìî¹8’òÄÂ.
 D
-java:S1905c"'Remove this unnecessary cast to "List".(ü¢¯8ù»–ÃÂ.
-b
-java:S2095n"EUse try-with-resources or close this "Session" in a "finally" clause.(ÌÉÜÃ8†¨µÃ.
+java:S1905"'Remove this unnecessary cast to "List".(ü¢¯8ù»–ÃÂ.
+I
+java:S1905j"'Remove this unnecessary cast to "List".(¡ƒÃ–úÿÿÿÿ8ù»–ÃÂ.
+c
+java:S2095"EUse try-with-resources or close this "Session" in a "finally" clause.(ÌÉÜÃ8†¨µÃ.
+I
+java:S1905N"'Remove this unnecessary cast to "List".(‘ö®úÿÿÿÿ8¿ÃÂ.
+_
+java:S1126Ô"AReplace this if-then-else statement by a single return statement.(ã…Øú8ù»–ÃÂ.
+_
+java:S1126"AReplace this if-then-else statement by a single return statement.(ã…Øú8ù»–ÃÂ.
+\
+java:S1155Ô">Use isEmpty() to check whether the collection is empty or not.(ã…Øú8ù»–ÃÂ.
+I
+java:S1168Ü"+Return an empty collection instead of null.(¥¹ï8ù»–ÃÂ.
 R
-java:S3740«"/Provide the parametrized type for this generic.(ßÑäüÿÿÿÿ8†¨µÃ.
-R
-java:S3740Ò"/Provide the parametrized type for this generic.(ßÑäüÿÿÿÿ8†¨µÃ.
-J
-java:S1128".Remove this unused import 'java.util.HashSet'.(Ê‚êX8†¨µÃ.
+java:S3740—"/Provide the parametrized type for this generic.(¼„ğ£üÿÿÿÿ8ù»–ÃÂ.
+\
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(ã…Øú8ù»–ÃÂ.

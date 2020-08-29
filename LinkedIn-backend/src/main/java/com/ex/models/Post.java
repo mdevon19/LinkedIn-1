@@ -1,14 +1,23 @@
 package com.ex.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * This is a POJO that represents a post in our application
+ * It uses hibernate to set up the design implemented in the database
+ *
+ * id - a generated value that is only used in the database
+ * desc - the description of the post
+ * postCat - the category of the post
+ * poster - the user that posted the post
+ * appliedUsers - a set of users that are the users that applied to the post
+ *
+ */
 @Entity
 @Table(name = "posts", schema = "linkedin")
 @Proxy(lazy = false)

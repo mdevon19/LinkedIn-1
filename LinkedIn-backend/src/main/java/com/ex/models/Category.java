@@ -3,9 +3,16 @@ package com.ex.models;
 import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
-import java.util.Set;
 
 
+/**
+ * This is a POJO that should represent a category in our application
+ * It uses hibernate to set up the correct design of the database
+ *
+ * id - the id of the category, used just for the database, it is a generated value
+ * title - the title of the category
+ *
+ */
 @Entity
 @Table(name = "categories", schema = "linkedin")
 @Proxy(lazy = false)

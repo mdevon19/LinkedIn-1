@@ -1,14 +1,25 @@
 package com.ex.models;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.Proxy;
-
 import javax.persistence.*;
-
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * This is a POJO the should represent a user in our application
+ * It uses hibernate to set up the design implemented in our database
+ *
+ * id - the id of the user, a generated value from the database
+ * username - the username of the user
+ * password - the password of the user
+ * firstName - the first name of the user
+ * lastName - the last name of the user
+ * email - the email of the user
+ * userCats - a set of categories that represents the categories of the user
+ * appliedPosts - a set of posts that represents the posts the user applied to
+ * userPosts - a set of posts that represents the posts that the user posted
+ *
+ */
 @Entity
 @Table(name = "users", schema = "linkedin")
 @Proxy(lazy = false)

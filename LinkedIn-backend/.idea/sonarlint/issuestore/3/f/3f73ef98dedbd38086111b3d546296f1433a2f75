@@ -1,12 +1,12 @@
 
 Y
-java:S1854"<Remove this useless assignment to local variable "username".(ŸÒÃ¢8‡¨µÃ.
-x
-java:S3923 "[Remove this conditional structure or edit its code blocks so that they're not all the same.(ºá8‡¨µÃ.
-H
-java:S1481"&Remove this unused "m" local variable.( İı¯ùÿÿÿÿ8‡¨µÃ.
+java:S1854$"<Remove this useless assignment to local variable "username".(ŸÒÃ¢8‡¨µÃ.
+X	java:S125%"<This block of commented-out lines of code should be removed.(ƒÙĞÓ8‡¨µÃ.
 J
-java:S1481"-Remove this unused "username" local variable.(ŸÒÃ¢8‡¨µÃ.
-X	java:S125"<This block of commented-out lines of code should be removed.(ƒÙĞÓ8‡¨µÃ.
-]	java:S125!"<This block of commented-out lines of code should be removed.(½ŒÀüÿÿÿÿ8‡¨µÃ.
-]	java:S125$"<This block of commented-out lines of code should be removed.(–·¼Óøÿÿÿÿ8‡¨µÃ.
+java:S1481$"-Remove this unused "username" local variable.(ŸÒÃ¢8‡¨µÃ.
+]	java:S125,"<This block of commented-out lines of code should be removed.(½ŒÀüÿÿÿÿ8‡¨µÃ.
+x
+java:S3923+"[Remove this conditional structure or edit its code blocks so that they're not all the same.(ºá8‡¨µÃ.
+]	java:S125/"<This block of commented-out lines of code should be removed.(–·¼Óøÿÿÿÿ8‡¨µÃ.
+H
+java:S1481#"&Remove this unused "m" local variable.( İı¯ùÿÿÿÿ8‡¨µÃ.

@@ -5,14 +5,17 @@ import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Isolation;
+
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * This is a DAO based class that implements a generic Dao class, which declares the methods
+ * This class uses hibernate to persist data into the database using models defined in the com.ex.models package
+ *
+ */
 
 @Repository
 @Transactional
@@ -23,6 +26,11 @@ public class HibDao implements Dao {
 
     }
 
+    /**
+     * A constructor that with create the HibDao object by using Spring
+     *
+     * @param sf - a SessionFactory bean provided by bean, which is init. in the ORMConfig class
+     */
     @Autowired
     public HibDao(SessionFactory sf){
         this.sessionFactory = sf;
@@ -30,6 +38,12 @@ public class HibDao implements Dao {
     }
 
 
+    /**
+     * This method is used for creating a new fresh new user to the database
+     *
+     * @param u - the user object you would like to persist to the database
+     * @return - the user object that you persisted to the database
+     */
     public User addNewUser(User u){
 
         Session session = this.sessionFactory.openSession();
@@ -44,7 +58,12 @@ public class HibDao implements Dao {
     }
 
 
-
+    /**
+     * This method is used to grab user data from the database based on the user's username
+     *
+     * @param username - the username string of the user you would like to get data from
+     * @return - the user object from the database that is associated with the username
+     */
     @Override
     @Transactional
     public User getExistingUser(String username) {
@@ -70,7 +89,11 @@ public class HibDao implements Dao {
     }
 
 
-
+    /**
+     * This  method will be used to grab every category's data from the database
+     *
+     * @return - a list that will hold each category from the database
+     */
     public List<Category> getAllCats(){
 
         Session session = this.sessionFactory.openSession();
@@ -88,6 +111,11 @@ public class HibDao implements Dao {
         return cats;
     }
 
+    /**
+     * This method will grab every post's data from the database
+     *
+     * @return - a list that holds every post from the database
+     */
     public List<Post> getAllPosts(){
 
         Session session = this.sessionFactory.openSession();
@@ -104,6 +132,12 @@ public class HibDao implements Dao {
         return posts;
     }
 
+    /**
+     * This method will delete a post from the database and any associations with it
+     *
+     * @param p - the post object you would like to delete from the database
+     * @return - an int that represents how many posts got delete from the database
+     */
     public int deletePost(Post p){
 
         p.setPostCat(null);
@@ -136,6 +170,13 @@ public class HibDao implements Dao {
         return 1;
     }
 
+    /**
+     * This method will be used to apply a user to a post and persist it to the database
+     *
+     * @param u - a user object that represents the user that is applying
+     * @param p - a post object that represents the post the user is applying to
+     * @return - a user object that now has the applied post associated with it
+     */
     public User userApply(User u, Post p){
 
         u.addAppliedPosts(p);
@@ -149,6 +190,13 @@ public class HibDao implements Dao {
 
     }
 
+    /**
+     * This method will delete an applied posts to a user and persist it to the database
+     *
+     * @param u - the user object that represents the user that is unapplying
+     * @param p - the post object that represents the post the user is unapplying to
+     * @return - a user object that has the applied post deleted from its data
+     */
     public User deleteApplied(User u, Post p){
 
         u.deleteApplied(p);
@@ -163,6 +211,11 @@ public class HibDao implements Dao {
         return getExistingUser(u.getUsername());
     }
 
+    /**
+     * This method will be used to delete the user's data from the database and any associated data with the user
+     *
+     * @param id - the id of the user that is being deleted
+     */
     @Override
     public void deleteUser(int id){
 
@@ -207,7 +260,13 @@ public class HibDao implements Dao {
     }
 
 
-
+    /**
+     * This method can be used to check the creds. of a user to see if a user in the database, is associated with
+     * the given username.
+     *
+     * @param username - the username string that you are checking
+     * @return - true if the user was found, false if it wasn't
+     */
     @Override
     public boolean checkCreds(String username) {
         Session session = this.sessionFactory.openSession();
@@ -231,6 +290,11 @@ public class HibDao implements Dao {
 
     }
 
+    /**
+     * This will be used to get every user's data in the database
+     *
+     * @return - a list of user objects that are persisted in the database
+     */
     @Override
     public List<User> getAllUsers() {
 
@@ -249,6 +313,14 @@ public class HibDao implements Dao {
 
     }
 
+    /**
+     * This method can be used to check the creds. of a user to see if a user in the database, is associated with
+     * the given username and password
+     *
+     * @param username - the username string you are checking
+     * @param password - the password string you are checking
+     * @return - true if a user is found, false if not found
+     */
     @Override
     public boolean checkCreds(String username, String password) {
         Session session = this.sessionFactory.openSession();
@@ -272,6 +344,12 @@ public class HibDao implements Dao {
         }
     }
 
+    /**
+     * This method will obtain a post object from the database using its id
+     *
+     * @param p - the id of the post you are trying to obtain
+     * @return - the post object associated with the id inputted
+     */
     @Override
     public Post getPostById(int p) {
 
@@ -281,6 +359,12 @@ public class HibDao implements Dao {
         return post;
     }
 
+    /**
+     * This method will obtain a category object from the database using its id
+     *
+     * @param c - the id of the category you are trying to obtain
+     * @return - the category object associated with the id inputted
+     */
     @Override
     public Category getCategoryById(int c) {
 
@@ -290,6 +374,12 @@ public class HibDao implements Dao {
         return cat;
     }
 
+    /**
+     * This method will grab all posts with the specific category associated with it
+     *
+     * @param c - the category object you want your posts to contain
+     * @return - a list of all posts in the database with the category of the inputted category
+     */
     @Override
     public List<Post> getPostsByCategory(Category c) {
         Session session = this.sessionFactory.openSession();
@@ -302,6 +392,13 @@ public class HibDao implements Dao {
         return list;
     }
 
+    /**
+     * This will add a category to a user in the database
+     *
+     * @param c - the category you would like to add to the user
+     * @param u - the user that is adding the category
+     * @return - the user object with the category now added to it
+     */
     @Override
     public User addCategoryForUser(Category c, User u) {
         u.addCat(c);
@@ -314,6 +411,13 @@ public class HibDao implements Dao {
         return u;
     }
 
+    /**
+     * This method will add a post object to a user and save the post and user to the database
+     *
+     * @param u - the user object that is adding the post
+     * @param p - the post object that the user is adding
+     * @return - the user object with the new post now added to it
+     */
     @Override
     public User addPostForUser(User u, Post p) {
 
@@ -329,6 +433,12 @@ public class HibDao implements Dao {
         return u;
     }
 
+    /**
+     * This will be used to grab all posts associate with the user in the database
+     *
+     * @param u - the user that this will get the posts of
+     * @return - a list of post object that the are associated with the user
+     */
     @Override
     public List<Post> getPostsByUser(User u) {
         Session session = this.sessionFactory.openSession();
@@ -341,6 +451,12 @@ public class HibDao implements Dao {
         return list;
     }
 
+    /**
+     * This will get all posts that a user has applied to from the database
+     *
+     * @param u - the user that will be used to get the applied posts
+     * @return - a set of post objects that should represent the posts the user applied to
+     */
     @Override
     public Set<Post> getPostsByApplied(User u) {
 
@@ -362,7 +478,12 @@ public class HibDao implements Dao {
     }
 
 
-
+    /**
+     * This method will obtain a user object from the database using its id
+     *
+     * @param id - the id of the user you are trying to obtain
+     * @return - the user object associated with the id inputted
+     */
     @Override
     public User getUserById(int id) {
         Session session = this.sessionFactory.openSession();
@@ -374,6 +495,14 @@ public class HibDao implements Dao {
         return u;
     }
 
+    /**
+     * This method will add a post to the database will no user associated with it
+     * (This should be used with another method that associates the user with it)
+     *
+     * @param p - the post object that will be persisted to the database
+     * @param session - a session object that will be used to as the connection to the database
+     * @return - the post object that was added to the database
+     */
     @Override
     public Post addNewPost(Post p, Session session) {
 
@@ -385,12 +514,17 @@ public class HibDao implements Dao {
 
     }
 
+    /**
+     * This will be used to add a log to the log table of the database
+     *
+     * @param m - the message that you would like to add to the log table
+     */
     @Override
     public void addLog(String m) {
         Session session = this.sessionFactory.openSession();
         session.beginTransaction();
 
-        Query q = session.createQuery("insert into linkedin.logs(message) values (" + m +")");
+        Query q = session.createQuery("insert into logs(message) values (" + m +")");
         q.executeUpdate();
 
         session.getTransaction().commit();
@@ -399,6 +533,11 @@ public class HibDao implements Dao {
 
     }
 
+    /**
+     * This method will delete all posts that were posted by a user
+     *
+     * @param u - the user that this will delete the posts of
+     */
     @Override
     public void deleteAllPostsForUser(User u) {
          for(Post p : u.getUserPosts()){
@@ -406,10 +545,7 @@ public class HibDao implements Dao {
         }
     }
 
-    @Override
-    public List<User> getAppliedUsers(Post p) {
-        return null;
-    }
+
 
 
 }

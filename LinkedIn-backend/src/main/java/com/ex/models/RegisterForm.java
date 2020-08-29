@@ -1,5 +1,14 @@
 package com.ex.models;
 
+/**
+ * A POJO that should represent form data of our registration in our app
+ *
+ * username - the username the user wants to have
+ * password - the password that the user wants
+ * first_name - the first name of the user registering
+ * last_name - the last name of the user registering
+ *
+ */
 public class RegisterForm {
     private String username;
     private String password;
