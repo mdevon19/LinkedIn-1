@@ -1,0 +1,40 @@
+<div class="text-center">
+    <div class="container">
+        <h4>Add New Job Post:</h4>
+        <form>
+            <div class="form-group">
+                
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-3 text-center">
+                        <label for="category_name">New Job Category</label>
+                    </div>
+                    
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-3 text-center">
+                        <app-category-drop-down
+                        (onChangeEvent) = "onChangeEvent($event)"
+                        >
+
+                        </app-category-drop-down>
+                    </div>
+                    </div>
+                
+          
+            </div>
+            <div class="form-group">
+                <label for="content">New Job Content</label>
+                <input type="text" name="content" class="form-control"maxlength = "300" placeholder="Create a new job here" #content>
+            </div>
+            <button type="button" (click) ="addPost(content)" class="btn btn-primary">Create</button>
+        </form>
+        <br>
+        <h4><strong>Apply to Jobs</strong></h4>
+        <app-each-post
+        *ngFor="let post of showPosts"
+        [post]= "post"
+        >
+        </app-each-post>
+    </div>
+</div>
+    

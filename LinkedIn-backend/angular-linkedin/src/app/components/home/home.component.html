@@ -1,0 +1,20 @@
+<div>
+        <app-navbar></app-navbar>
+
+    <div class="row">
+        <div class="col-md-6">
+            <app-wall
+            [filterCategories] = "filterCategories"
+            >
+
+            </app-wall>
+        </div>
+        <div class="col-md-6">
+            <app-categories
+            (onToggle) = "onToggle($event)"
+            >
+            
+            </app-categories>
+        </div>
+    </div>
+</div>>
