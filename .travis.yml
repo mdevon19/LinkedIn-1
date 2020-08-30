@@ -55,16 +55,17 @@ jobs:
     workspaces:
         use: workspace2
     before_script:
-       - pwd
-       - cd /
-       - ls
-       - cd /home
-       - ls
-       - cd /travis
-       - cd /build
-       - cd /mdevon19
-       - cd /LinkedIn-1
-       #- cd  /home/travis/build/mdevon19/LinkedIn-1
+       #- pwd
+       #- cd /
+       #- ls
+       #- cd /home
+       #- ls
+       #- cd /travis
+       #- cd /build
+       #- cd /mdevon19
+       #- cd /LinkedIn-1
+       - cd ~/
+       - cd  /home/travis/build/mdevon19/LinkedIn-1
       #- cd /
       # - cd mdevon19/LinkedIn-1/
     services:
