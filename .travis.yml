@@ -58,6 +58,7 @@ jobs:
        - pwd
       #- cd /
        - cd mdevon19/LinkedIn-1/
+       - ls
     services:
         - docker
     script:
