@@ -73,6 +73,7 @@ jobs:
         - docker push $DOCKER_USERNAME/linkedin:latest
         - cd /
         - cd  /home/travis/build/mdevon19/LinkedIn-1
+        - git status
         
     deploy:
       provider: elasticbeanstalk
