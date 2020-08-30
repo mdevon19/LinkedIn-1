@@ -76,8 +76,8 @@ jobs:
         
     deploy:
       provider: elasticbeanstalk
-      access_key_id: #put
-      secret_access_key: #put
+      access_key_id: $ACCESS_KEY_ID
+      secret_access_key: $SECRET_ACCESS_KEY
       region: "us-east-2"
       app: "LinkedIn"
       env: "Linkedin-env"
