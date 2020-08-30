@@ -57,7 +57,7 @@ jobs:
     before_script:
        - pwd
       #- cd /
-      #- cd  /home/travis/build/mdevon19/LinkedIn-1/
+       - cd mdevon19/LinkedIn-1/
     services:
         - docker
     script:
