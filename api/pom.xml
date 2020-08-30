@@ -160,7 +160,7 @@
             <failOnMissingWebXml>false</failOnMissingWebXml>
             <webResources>
               <resource>
-                <directory>angular-backend/dist/angular-backend</directory>
+                <directory>angular-linkedin/dist/angular-linkedin</directory>
               </resource>
             </webResources>
           </configuration>
