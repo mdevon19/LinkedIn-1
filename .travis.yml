@@ -71,6 +71,8 @@ jobs:
         - docker images
         - docker tag linkedin $DOCKER_USERNAME/linkedin:latest
         - docker push $DOCKER_USERNAME/linkedin:latest
+        - cd /
+        - cd  /home/travis/build/mdevon19/LinkedIn-1
         
     deploy:
       provider: elasticbeanstalk
