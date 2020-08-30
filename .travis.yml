@@ -53,7 +53,7 @@ jobs:
     git:
       clone: false
     workspaces:
-        use: workspace2
+        use: workspace1
         create:
           name: workspace3
           paths: /home/travis/build/mdevon19/LinkedIn-1
