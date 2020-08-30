@@ -20,7 +20,7 @@ export class CategoryService {
   allCategories:Category[];
   dbCategories: any[];
 
-  allCategoryUrl:string = 'http://localhost:8080/LinkedIn_backend_war_exploded/api/categories';
+  allCategoryUrl:string = 'http://localhost:8080/api/categories';
 
   constructor(private http:HttpClient) { }
 

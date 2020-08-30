@@ -39,7 +39,7 @@ export class UserService {
    * 
    */
   getAllUsers(){
-    return this.http.get<User[]>('http://localhost:8080/LinkedIn_backend_war_exploded/api/users');
+    return this.http.get<User[]>('http://localhost:8080/api/users');
   }
 
   /**
@@ -48,7 +48,7 @@ export class UserService {
    * @param password - the password of the user
    */
 getUser(username, password):Observable<User>{
-    this.user = this.http.get<User>('http://localhost:8080/LinkedIn_backend_war_exploded/api/users/checkCreds/' + username +"/"+password);
+    this.user = this.http.get<User>('http://localhost:8080/api/users/checkCreds/' + username +"/"+password);
     return this.user;
 }
 logout() {
@@ -63,7 +63,7 @@ logout() {
  * @param p - the post that this will get the applied users of
  */
 getApplyUsersByPost(p:Post):Observable<User[]>{
-  return this.http.get<User[]>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/appliedUsers/"+p.id);
+  return this.http.get<User[]>("http://localhost:8080/api/users/appliedUsers/"+p.id);
 }
 
 /**
@@ -71,7 +71,7 @@ getApplyUsersByPost(p:Post):Observable<User[]>{
  * @param formData - the form data that holds the username, password, first name, and last name of the new user
  */
 register(formData:any): Observable<User> {
-  return this.http.post<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/addNewUser",formData);
+  return this.http.post<User>("http://localhost:8080/api/users/addNewUser",formData);
 }
 
 /**
@@ -79,7 +79,7 @@ register(formData:any): Observable<User> {
  * @param post - the post the user is applying to
  */
 applyToPost(post:Post):Observable<User>{
-  return this.http.post<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/"+JSON.parse(localStorage.getItem('user')).username +"/apply/"+post.id,post);
+  return this.http.post<User>("http://localhost:8080/api/users/"+JSON.parse(localStorage.getItem('user')).username +"/apply/"+post.id,post);
 }
 
 /**
@@ -88,7 +88,7 @@ applyToPost(post:Post):Observable<User>{
  */
 addPost(post:Post):Observable<User>{
   console.log(post);
-  return this.http.post<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/addPost/"+JSON.parse(localStorage.getItem('user')).id,post);
+  return this.http.post<User>("http://localhost:8080/api/users/addPost/"+JSON.parse(localStorage.getItem('user')).id,post);
 }
 
 /**
@@ -96,7 +96,7 @@ addPost(post:Post):Observable<User>{
  * @param id - the id of the user
  */
 getUserById(id:number){
-  return this.http.get<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/"+id);
+  return this.http.get<User>("http://localhost:8080/api/users/"+id);
 }
 
 /**
@@ -105,11 +105,11 @@ getUserById(id:number){
  * @param u - the user that is unapplying
  */
 deleteApply(p:number,u:User): Observable<User>{
-  return this.http.get<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/deleteApply/"+u.username+"/"+p);
+  return this.http.get<User>("http://localhost:8080/api/users/deleteApply/"+u.username+"/"+p);
 }
 
 getPosterByPost(p:Post):Observable<User>{
-  return this.http.get<User>("http://localhost:8080/LinkedIn_backend_war_exploded/api/users/poster/"+p.id);
+  return this.http.get<User>("http://localhost:8080/api/users/poster/"+p.id);
 }
 
 }

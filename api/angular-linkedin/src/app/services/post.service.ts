@@ -18,7 +18,7 @@ export class PostService {
    * This will return an Observable that holds an array of all the posts in our database
    */
   getAllPosts(): Observable<Post[]>{
-    return this.http.get<Post[]>("http://localhost:8080/LinkedIn_backend_war_exploded/api/posts");
+    return this.http.get<Post[]>("http://localhost:8080/api/posts");
   }
 
   /**
@@ -26,7 +26,7 @@ export class PostService {
    * @param u - the user to get the posts of
    */
   getPostsForUser(u:User): Observable<Post[]>{
-    return this.http.get<Post[]>("http://localhost:8080/LinkedIn_backend_war_exploded/api/posts/poster/"+u.id);
+    return this.http.get<Post[]>("http://localhost:8080/api/posts/poster/"+u.id);
   }
 
   /**
@@ -34,7 +34,7 @@ export class PostService {
    * @param p - the post to delete
    */
   deletePost(p:Post): Observable<string>{
-    return this.http.get<string>("http://localhost:8080/LinkedIn_backend_war_exploded/api/posts/delete/" + p.id);
+    return this.http.get<string>("http://localhost:8080/api/posts/delete/" + p.id);
   }
 
   /**
@@ -42,7 +42,7 @@ export class PostService {
    * @param u - the user to get the applied post of
    */
   appliedPosts(u:User): Observable<Post[]>{
-    return this.http.get<Post[]>("http://localhost:8080/LinkedIn_backend_war_exploded/api/posts/applied/"+u.username);
+    return this.http.get<Post[]>("http://localhost:8080/api/posts/applied/"+u.username);
   }
 
 }
