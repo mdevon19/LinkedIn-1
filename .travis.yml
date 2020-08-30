@@ -57,7 +57,13 @@ jobs:
     before_script:
        - pwd
        - cd /
-       - cd  /home/travis/build/mdevon19/LinkedIn-1
+       - ls
+       - cd /home
+       - cd /travis
+       - cd /build
+       - cd /mdevon19
+       - cd /LinkedIn-1
+       #- cd  /home/travis/build/mdevon19/LinkedIn-1
       #- cd /
       # - cd mdevon19/LinkedIn-1/
     services:
