@@ -55,8 +55,9 @@ jobs:
     workspaces:
         use: workspace2
     before_script:
-      - cd /
-      - cd  /home/travis/build/$DOCKER_USERNAME/LinkedIn-1/
+       - pwd
+      #- cd /
+      #- cd  /home/travis/build/mdevon19/LinkedIn-1/
     services:
         - docker
     script:
