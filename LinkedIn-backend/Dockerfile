@@ -4,7 +4,7 @@ WORKDIR $CATALINA_HOME
 
 ARG WAR_FILE=./target/*.war
 
-COPY $WAR_FILES ./webapps/ROOT.war
+COPY $WAR_FILE ./webapps/ROOT.war
 
 EXPOSE 8080
 
