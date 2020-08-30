@@ -47,7 +47,6 @@ jobs:
       - ls ./angular-linkedin
       - mvn package -DskipTests
       - ls
-      - docker build -t linkedin .
       
   - stage: dockerdeploy
     language: generic
