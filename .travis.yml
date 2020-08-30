@@ -65,12 +65,12 @@ jobs:
         - docker
     script:
         - ls
-        - docker build -t linkedin ./api
+        - docker build -t linkedinfinal ./api
     after_success:
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - docker images
-        - docker tag linkedin $DOCKER_USERNAME/linkedin:latest
-        - docker push $DOCKER_USERNAME/linkedin:latest
+        - docker tag linkedinfinal $DOCKER_USERNAME/linkedinfinal:latest
+        - docker push $DOCKER_USERNAME/linkedinfinal:latest
         - cd /
         - cd  /home/travis/build/mdevon19/LinkedIn-1
         - git status
