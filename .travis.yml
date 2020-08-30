@@ -52,17 +52,17 @@ jobs:
     language: generic
     git:
       clone: false
-      workspaces:
+    workspaces:
         use: workspace2
-      before_script:
+    before_script:
       - cd /
       - cd  home/travis/build/mdevon19/LinkedIn-1/
-      services:
+    services:
         - docker
-      script:
+    script:
         - ls
         - docker build -t linkedin ./LinkedIn-backend
-      after_success:
+    after_success:
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - docker images
         - docker tag linkedin $DOCKER_USERNAME/linkedin:latest
