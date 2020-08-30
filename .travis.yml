@@ -59,6 +59,7 @@ jobs:
        - cd /
        - ls
        - cd /home
+       - ls
        - cd /travis
        - cd /build
        - cd /mdevon19
