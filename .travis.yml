@@ -57,13 +57,12 @@ jobs:
     before_script:
        - pwd
       #- cd /
-       - cd mdevon19/LinkedIn-1/
-       - ls
+      # - cd mdevon19/LinkedIn-1/
     services:
         - docker
     script:
         - ls
-        - docker build -t linkedin ./LinkedIn-backend
+        - docker build -t linkedin ./mdevon19/LinkedIn-1/LinkedIn-backend
     after_success:
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - docker images
