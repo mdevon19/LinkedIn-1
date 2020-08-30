@@ -2,7 +2,6 @@ stages:
   - front
   - back
   - dockerdeploy  
-  
 dist: trusty
 sudo: required
 
