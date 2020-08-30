@@ -19,7 +19,7 @@ jobs:
       chrome: stable
     before_script:
       - cd / 
-      - cd  /home/travis/build/mdevon19/LinkedIn-1/LinkedIn-backend/angular-linkedin
+      - cd  /home/travis/build/mdevon19/LinkedIn-1/api/angular-linkedin
       - npm install -g @angular/cli
       - npm install    
     script:
@@ -29,7 +29,7 @@ jobs:
     workspaces:
       create:
         name: workspace1
-        paths: /home/travis/build/mdevon19/LinkedIn-1/LinkedIn-backend
+        paths: /home/travis/build/mdevon19/LinkedIn-1/api
   - stage: back
     language: java
     jdk: oraclejdk8
@@ -42,7 +42,7 @@ jobs:
         paths: /home/travis/build/mdevon19/LinkedIn-1
     before_script:
       - cd /
-      - cd  /home/travis/build/mdevon19/LinkedIn-1/LinkedIn-backend
+      - cd  /home/travis/build/mdevon19/LinkedIn-1/api
     script:
       - ls ./angular-linkedin
       - mvn package -DskipTests
@@ -65,7 +65,7 @@ jobs:
         - docker
     script:
         - ls
-        - docker build -t linkedin ./LinkedIn-backend
+        - docker build -t linkedin ./api
     after_success:
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - docker images
