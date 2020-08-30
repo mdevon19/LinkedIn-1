@@ -54,25 +54,18 @@ jobs:
       clone: false
     workspaces:
         use: workspace2
+        create:
+          name: workspace3
+          paths: /home/travis/build/mdevon19/LinkedIn-1
     before_script:
-       #- pwd
-       #- cd /
-       #- ls
-       #- cd /home
-       #- ls
-       #- cd /travis
-       #- cd /build
-       #- cd /mdevon19
-       #- cd /LinkedIn-1
-       - cd ~/
+       - cd /
        - cd  /home/travis/build/mdevon19/LinkedIn-1
-      #- cd /
-      # - cd mdevon19/LinkedIn-1/
+
     services:
         - docker
     script:
         - ls
-        - docker build -t linkedin ./mdevon19/LinkedIn-1/LinkedIn-backend
+        - docker build -t linkedin ./LinkedIn-backend
     after_success:
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - docker images
