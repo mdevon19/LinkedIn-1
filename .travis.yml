@@ -71,3 +71,14 @@ jobs:
         - docker images
         - docker tag linkedin $DOCKER_USERNAME/linkedin:latest
         - docker push $DOCKER_USERNAME/linkedin:latest
+        
+    deploy:
+      provider: elasticbeanstalk
+      access_key_id: #put
+      secret_access_key: #put
+      region: "us-east-2"
+      app: "LinkedIn"
+      env: "Linkedin-env"
+      bucket_name: "elasticbeanstalk-us-east-2-317848226977"
+      on:
+        branch: master
