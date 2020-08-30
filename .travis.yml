@@ -69,7 +69,7 @@ jobs:
     after_success:
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - docker images
-        - docker tag linkedinlatest $DOCKER_USERNAME/linkedinfinal:latest
+        - docker tag linkedinfinal $DOCKER_USERNAME/linkedinfinal:latest
         - docker push $DOCKER_USERNAME/linkedinfinal:latest
         - cd /
         - cd  /home/travis/build/mdevon19/LinkedIn-1
