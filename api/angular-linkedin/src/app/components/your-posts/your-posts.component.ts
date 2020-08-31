@@ -51,4 +51,24 @@ export class YourPostsComponent implements OnInit {
     console.log(this.posts);
   }
 
+  onDeleteEvent(post:Post){
+    let index = 0;
+    for(let p of this.appliedPosts){
+      if(p.id === post.id){
+        this.appliedPosts.splice(index,1);
+      }
+      index = index + 1;
+    }
+  }
+
+  onApplyEvent(post:Post){
+    let index = 0;
+    for(let p of this.posts){
+      if(p.id === post.id){
+        this.posts.splice(index,1);
+      }
+      index = index + 1;
+    }
+  }
+
 }

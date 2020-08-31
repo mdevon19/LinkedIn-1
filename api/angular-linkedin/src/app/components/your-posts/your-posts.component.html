@@ -11,7 +11,9 @@
                 <app-your-each-post 
                 style="padding:20px 0px" 
                 *ngFor ="let post of posts"
-                [post] = "post">
+                [post] = "post"
+                (onApplyEvent) = "onApplyEvent($event)"
+                >
                 </app-your-each-post>
             
             </div>
@@ -23,7 +25,9 @@
                 <app-your-each-applied 
                 style="padding:20px 0px" 
                 *ngFor ="let post of appliedPosts"
-                [post] = "post">
+                [post] = "post"
+                (onDeleteEvent) = "onDeleteEvent($event)"
+                >
                 </app-your-each-applied>
             </div>
         </div>

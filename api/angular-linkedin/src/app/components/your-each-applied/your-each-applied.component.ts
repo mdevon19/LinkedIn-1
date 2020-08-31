@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
@@ -9,6 +9,8 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./your-each-applied.component.css']
 })
 export class YourEachAppliedComponent implements OnInit {
+
+  @Output() onDeleteEvent: EventEmitter<Post> = new EventEmitter();
 
   @Input() post:Post;
   user:User;
@@ -28,6 +30,8 @@ export class YourEachAppliedComponent implements OnInit {
   onDelete(post:Post){
     this.userService.deleteApply(post.id,JSON.parse(localStorage.getItem('user'))).subscribe(u=>{
       localStorage.setItem('user',JSON.stringify(u));
+      this.onDeleteEvent.emit(post);
+
       // location.reload();
     })
   }

@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { PostService } from 'src/app/services/post.service';
+
 
 @Component({
   selector: 'app-your-each-post',
@@ -13,6 +14,8 @@ import { PostService } from 'src/app/services/post.service';
  * This component is in charge of each post of the user 
  */
 export class YourEachPostComponent implements OnInit {
+
+  @Output() onApplyEvent: EventEmitter<Post> = new EventEmitter();
 
   @Input() post:Post;
   user:User;
@@ -49,6 +52,8 @@ export class YourEachPostComponent implements OnInit {
         console.log("deleted");
         this.userService.getUserById(JSON.parse(localStorage.getItem('user')).id).subscribe(u=>{
             localStorage.setItem('user',JSON.stringify(u));
+            this.onApplyEvent.emit(post);
+
             // location.reload();
         });
       
