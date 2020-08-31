@@ -19,8 +19,10 @@ export class CategoryService {
 
   allCategories:Category[];
   dbCategories: any[];
+  public apiUrl: string = window.location.protocol + "//" + window.location.host + "/api";
 
-  allCategoryUrl:string = 'http://localhost:8080/api/categories';
+
+  // allCategoryUrl:string = 'http://localhost:8080/api/categories';
 
   constructor(private http:HttpClient) { }
 
@@ -29,7 +31,7 @@ export class CategoryService {
    * in our database
    */
   getAllCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.allCategoryUrl);
+    return this.http.get<Category[]>(this.apiUrl + '/categories');
 
   }
 }

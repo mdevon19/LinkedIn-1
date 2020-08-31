@@ -24,6 +24,8 @@ export class UserService {
   public user: Observable<User>;
   public realUser:User;
 
+  public apiUrl: string = window.location.protocol + "//" + window.location.host + "/api";
+
   constructor(     
     private router: Router,
     private http: HttpClient) { 
@@ -39,7 +41,8 @@ export class UserService {
    * 
    */
   getAllUsers(){
-    return this.http.get<User[]>('http://localhost:8080/api/users');
+    return this.http.get<User[]>(this.apiUrl+'/users');
+    // return this.http.get<User[]>('http://localhost:8080/api/users');
   }
 
   /**
@@ -48,7 +51,9 @@ export class UserService {
    * @param password - the password of the user
    */
 getUser(username, password):Observable<User>{
-    this.user = this.http.get<User>('http://localhost:8080/api/users/checkCreds/' + username +"/"+password);
+    this.user = this.http.get<User>(this.apiUrl+'/users/checkCreds/' + username +"/"+password);
+
+    // this.user = this.http.get<User>('http://localhost:8080/api/users/checkCreds/' + username +"/"+password);
     return this.user;
 }
 logout() {
@@ -63,7 +68,9 @@ logout() {
  * @param p - the post that this will get the applied users of
  */
 getApplyUsersByPost(p:Post):Observable<User[]>{
-  return this.http.get<User[]>("http://localhost:8080/api/users/appliedUsers/"+p.id);
+  return this.http.get<User[]>(this.apiUrl +'/users/appliedUsers/'+p.id);
+
+  // return this.http.get<User[]>("http://localhost:8080/api/users/appliedUsers/"+p.id);
 }
 
 /**
@@ -71,7 +78,9 @@ getApplyUsersByPost(p:Post):Observable<User[]>{
  * @param formData - the form data that holds the username, password, first name, and last name of the new user
  */
 register(formData:any): Observable<User> {
-  return this.http.post<User>("http://localhost:8080/api/users/addNewUser",formData);
+  return this.http.post<User>(this.apiUrl + '/users/addNewUser',formData);
+
+  // return this.http.post<User>("http://localhost:8080/api/users/addNewUser",formData);
 }
 
 /**
@@ -79,7 +88,7 @@ register(formData:any): Observable<User> {
  * @param post - the post the user is applying to
  */
 applyToPost(post:Post):Observable<User>{
-  return this.http.post<User>("http://localhost:8080/api/users/"+JSON.parse(localStorage.getItem('user')).username +"/apply/"+post.id,post);
+  return this.http.post<User>(this.apiUrl + '/users/'+JSON.parse(localStorage.getItem('user')).username +'/apply/'+post.id,post);
 }
 
 /**
@@ -88,7 +97,9 @@ applyToPost(post:Post):Observable<User>{
  */
 addPost(post:Post):Observable<User>{
   console.log(post);
-  return this.http.post<User>("http://localhost:8080/api/users/addPost/"+JSON.parse(localStorage.getItem('user')).id,post);
+  return this.http.post<User>(this.apiUrl + '/users/addPost/'+JSON.parse(localStorage.getItem('user')).id,post);
+
+  // return this.http.post<User>("http://localhost:8080/api/users/addPost/"+JSON.parse(localStorage.getItem('user')).id,post);
 }
 
 /**
@@ -96,7 +107,9 @@ addPost(post:Post):Observable<User>{
  * @param id - the id of the user
  */
 getUserById(id:number){
-  return this.http.get<User>("http://localhost:8080/api/users/"+id);
+  return this.http.get<User>(this.apiUrl +'/users/'+id);
+
+  // return this.http.get<User>("http://localhost:8080/api/users/"+id);
 }
 
 /**
@@ -105,11 +118,15 @@ getUserById(id:number){
  * @param u - the user that is unapplying
  */
 deleteApply(p:number,u:User): Observable<User>{
-  return this.http.get<User>("http://localhost:8080/api/users/deleteApply/"+u.username+"/"+p);
+  return this.http.get<User>(this.apiUrl +'/users/deleteApply/'+u.username+'/'+p);
+
+  // return this.http.get<User>("http://localhost:8080/api/users/deleteApply/"+u.username+"/"+p);
 }
 
 getPosterByPost(p:Post):Observable<User>{
-  return this.http.get<User>("http://localhost:8080/api/users/poster/"+p.id);
+  return this.http.get<User>(this.apiUrl +'/users/poster/'+p.id);
+
+  // return this.http.get<User>("http://localhost:8080/api/users/poster/"+p.id);
 }
 
 }
