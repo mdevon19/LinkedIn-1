@@ -29,7 +29,7 @@ jobs:
     workspaces:
       create:
         name: workspace1
-        paths: /home/travis/build/mdevon19/LinkedIn-1/api
+        paths: /home/travis/build/mdevon19/LinkedIn-1
   - stage: back
     language: java
     jdk: oraclejdk8
@@ -53,10 +53,7 @@ jobs:
     git:
       clone: false
     workspaces:
-        use: workspace1
-        create:
-          name: workspace3
-          paths: /home/travis/build/mdevon19/LinkedIn-1
+        use: workspace2
     before_script:
        - cd /
        - cd  /home/travis/build/mdevon19/LinkedIn-1
@@ -71,9 +68,6 @@ jobs:
         - docker images
         - docker tag linkedinfinal $DOCKER_USERNAME/linkedinfinal:latest
         - docker push $DOCKER_USERNAME/linkedinfinal:latest
-        - cd /
-        - cd  /home/travis/build/mdevon19/LinkedIn-1
-        - git status
         
     deploy:
       provider: elasticbeanstalk
