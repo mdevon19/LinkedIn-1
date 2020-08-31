@@ -13,7 +13,7 @@ import javax.persistence.EntityNotFoundException;
 
 @RestController
 @RequestMapping(path="/categories")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+//@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CategoryController {
 
     private CategoryService service;
