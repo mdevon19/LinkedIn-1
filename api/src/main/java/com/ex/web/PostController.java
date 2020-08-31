@@ -12,7 +12,7 @@ import javax.persistence.EntityNotFoundException;
 
 @RestController
 @RequestMapping(path="/posts")
-//@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PostController {
 
     private PostService service;
