@@ -148,6 +148,7 @@ public class HibDao implements Dao {
             sess1.update(u);
             sess1.getTransaction().commit();
         }
+        sess1.close();
 
         p.setPoster(null);
         Session sess = this.sessionFactory.openSession();
