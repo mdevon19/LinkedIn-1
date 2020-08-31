@@ -49,7 +49,7 @@ export class YourEachPostComponent implements OnInit {
         console.log("deleted");
         this.userService.getUserById(JSON.parse(localStorage.getItem('user')).id).subscribe(u=>{
             localStorage.setItem('user',JSON.stringify(u));
-            location.reload();
+            // location.reload();
         });
       
     })

@@ -28,7 +28,7 @@ export class YourEachAppliedComponent implements OnInit {
   onDelete(post:Post){
     this.userService.deleteApply(post.id,JSON.parse(localStorage.getItem('user'))).subscribe(u=>{
       localStorage.setItem('user',JSON.stringify(u));
-      location.reload();
+      // location.reload();
     })
   }
 
