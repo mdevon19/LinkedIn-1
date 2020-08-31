@@ -52,7 +52,7 @@ export class PostService {
    * @param u - the user to get the applied post of
    */
   appliedPosts(u:User): Observable<Post[]>{
-    return this.http.get<Post[]>(this.apiUrl +'/api/posts/applied/'+u.username);
+    return this.http.get<Post[]>(this.apiUrl +'/posts/applied/'+u.username);
 
     // return this.http.get<Post[]>("http://localhost:8080/api/posts/applied/"+u.username);
   }
