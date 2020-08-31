@@ -12,8 +12,8 @@ import javax.persistence.EntityNotFoundException;
 
 
 @RestController
-@RequestMapping(path="/categories")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping(path="/categories")
 public class CategoryController {
 
     private CategoryService service;
@@ -23,6 +23,7 @@ public class CategoryController {
             this.service = service;
     }
 
+    @CrossOrigin
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getAllCategories() {
@@ -34,7 +35,7 @@ public class CategoryController {
         }
     }
 
-
+    @CrossOrigin
     @GetMapping(path="{id}", produces=MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getCategoryById(@PathVariable int id){

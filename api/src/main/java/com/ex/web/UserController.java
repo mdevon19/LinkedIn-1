@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.persistence.EntityNotFoundException;
 
 @RestController
-@RequestMapping(path="/users")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping(path="/users")
 public class UserController {
     private UserService service;
 
@@ -23,6 +23,7 @@ public class UserController {
         this.service = service;
     }
 
+    @CrossOrigin
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getAllUsers() {
@@ -34,7 +35,7 @@ public class UserController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
-
+    @CrossOrigin
     @GetMapping(path="/getUser/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getOtherUser(@PathVariable String username) {
@@ -46,7 +47,7 @@ public class UserController {
         }
     }
 
-
+    @CrossOrigin
     @GetMapping(path="/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getUserByUsername(@PathVariable String username) {
@@ -57,7 +58,7 @@ public class UserController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
-
+    @CrossOrigin
     @RequestMapping(value="/addNewUser", method = RequestMethod.POST, produces =  MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getNewUser(@RequestBody RegisterForm form){
@@ -72,7 +73,7 @@ public class UserController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
+    @CrossOrigin
     @GetMapping(path="deleteUser/{username}", produces = MediaType.TEXT_PLAIN_VALUE)
     public String deleteUser(@PathVariable String username){
 
@@ -80,7 +81,7 @@ public class UserController {
         return "deleted";
 
     }
-
+    @CrossOrigin
     @PostMapping(path="{username}/apply/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity applyUser(@PathVariable int id, @PathVariable String username){
@@ -90,7 +91,7 @@ public class UserController {
             return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
+    @CrossOrigin
     @GetMapping(path="editUser/category/{username}/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity addCategoryUser(@PathVariable int id, @PathVariable String username){
@@ -100,7 +101,7 @@ public class UserController {
             return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
-
+    @CrossOrigin
     @PostMapping(path="addPost/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity addPostUser(@PathVariable int id, @RequestBody Post p){
@@ -112,7 +113,7 @@ public class UserController {
             return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
-
+    @CrossOrigin
     @RequestMapping(path="checkCreds/{username}/{password}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity checkCreds(@PathVariable String username, @PathVariable String password){
@@ -123,7 +124,7 @@ public class UserController {
             return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
-
+    @CrossOrigin
     @GetMapping(path="deleteApply/{username}/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity deleteApply(@PathVariable int id, @PathVariable String username){
@@ -133,7 +134,7 @@ public class UserController {
             return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
-
+    @CrossOrigin
     @GetMapping(path="appliedUsers/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getAppliedFromPost(@PathVariable int id){
@@ -143,7 +144,7 @@ public class UserController {
             return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
-
+    @CrossOrigin
     @GetMapping(path="poster/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getPosterByPost(@PathVariable int id){

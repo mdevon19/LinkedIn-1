@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.persistence.EntityNotFoundException;
 
 @RestController
-@RequestMapping(path="/posts")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping(path="/posts")
 public class PostController {
 
     private PostService service;
@@ -22,6 +22,7 @@ public class PostController {
         this.service = service;
     }
 
+    @CrossOrigin
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getAllPosts() {
@@ -31,7 +32,7 @@ public class PostController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
-
+    @CrossOrigin
     @GetMapping(path="{id}", produces=MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getPostById(@PathVariable  int id){
@@ -41,7 +42,7 @@ public class PostController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
-
+    @CrossOrigin
     @GetMapping(path="poster/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getPostByUser(@PathVariable int id){
@@ -51,7 +52,7 @@ public class PostController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
-
+    @CrossOrigin
     @GetMapping(path="applied/{username}", produces=MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getPostByApplied(@PathVariable String username){
@@ -61,7 +62,7 @@ public class PostController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
-
+    @CrossOrigin
     @GetMapping(path="category/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity getPostByCategory(@PathVariable int id){
@@ -71,7 +72,7 @@ public class PostController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
-
+    @CrossOrigin
     @GetMapping(path="delete/{id}", produces=MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
     public ResponseEntity deletePost(@PathVariable int id){
