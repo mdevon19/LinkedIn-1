@@ -5,6 +5,7 @@ import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -141,5 +142,16 @@ public class Post {
     public void addApplied(User u) {
         appliedUsers.add(u);
     }
+
+    public void deleteApplied(User u) {
+        Iterator<User> itr = appliedUsers.iterator();
+        while(itr.hasNext()){
+            User user = itr.next();
+            if(user.getId() == u.getId()){
+                appliedUsers.remove(user);
+            }
+        }
+    }
+
 }
 

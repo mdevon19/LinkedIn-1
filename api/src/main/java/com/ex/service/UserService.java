@@ -160,7 +160,8 @@ public class UserService {
         User user = dao.getExistingUser(u);
         Post p = dao.getPostById(id);
 
-        return dao.deleteApplied(user, p);
+        user = dao.deleteApplied(user, p);
+        return user;
     }
 
     /**

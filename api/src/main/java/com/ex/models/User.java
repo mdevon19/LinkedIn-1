@@ -3,6 +3,7 @@ package com.ex.models;
 import org.hibernate.annotations.Proxy;
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -82,9 +83,12 @@ public class User {
     }
 
     public void deleteApplied(Post p){
-        for( Post post : appliedPosts){
+        Iterator<Post> itr = appliedPosts.iterator();
+        while(itr.hasNext()){
+            Post post = itr.next();
             if(post.getId() == p.getId()){
-                appliedPosts.remove(p);
+                appliedPosts.remove(post);
+                post.getAppliedUsers().remove(this);
             }
         }
     }
